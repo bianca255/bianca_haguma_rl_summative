@@ -1,0 +1,18 @@
+{
+ "dqn": {
+  "run": 2,
+  "path": "models/dqn/dqn_run_02.pt"
+ },
+ "reinforce": {
+  "run": 4,
+  "path": "models/pg/reinforce_run_04.pt"
+ },
+ "ppo": {
+  "run": 10,
+  "path": "models/pg/ppo_run_10.pt"
+ },
+ "a2c": {
+  "run": 1,
+  "path": "models/pg/a2c_run_01.pt"
+ }
+}

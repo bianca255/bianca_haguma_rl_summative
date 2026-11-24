@@ -1,0 +1,26 @@
+[project]
+name = "bianca-rl-summative"
+version = "0.1.0"
+description = "KigaliCare: RL for care-navigation in a digital mental-health platform (DQN, REINFORCE, PPO, A2C with TorchRL)"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "numpy",
+    "gymnasium",
+    "torch",
+    "torchrl",
+    "tensordict",
+    "pygame",
+    "matplotlib",
+    "pandas",
+    "imageio",
+]
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

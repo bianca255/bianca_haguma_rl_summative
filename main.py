@@ -1,11 +1,11 @@
 """KigaliCare RL summative - single entry point.
 
-    uv run main.py                      # watch the BEST trained agent (GUI + verbose terminal output)
-    uv run main.py play --algo ppo      # best run of a specific algorithm
-    uv run main.py play --random        # random baseline
-    uv run main.py play --headless      # no window; saves assets/demo.gif
-    uv run main.py train [dqn reinforce ppo a2c]   # run the 10-config sweeps (slow)
-    uv run main.py report               # regenerate tables + figures in assets/ and logs/
+    uv run main.py
+    uv run main.py play --algo ppo
+    uv run main.py play --random
+    uv run main.py play --headless
+    uv run main.py train [dqn reinforce ppo a2c]
+    uv run main.py report
 """
 from __future__ import annotations
 

@@ -8,29 +8,6 @@ and avoiding crisis events. Four algorithms are trained with **TorchRL** on the 
 
 > The environment is a simplified simulation for studying RL; its coefficients are modelling assumptions, not clinical estimates.
 
-## Quick start (uv only)
-
-```bash
-git clone <your-repo-url> bianca_rl_summative && cd bianca_rl_summative
-uv sync                 # creates .venv and installs everything from pyproject.toml / uv.lock
-uv run main.py          # opens the GUI and replays the best trained agent, printing verbose output
-```
-
-Other commands:
-
-```bash
-uv run main.py play --algo ppo          # best run of one algorithm (dqn | reinforce | ppo | a2c)
-uv run main.py play --random            # random baseline
-uv run main.py play --headless          # no window, saves assets/demo.gif
-uv run main.py train                    # re-run all 40 sweep runs (~1 h on 1 CPU core)
-uv run main.py train ppo a2c            # or only some algorithms
-uv run main.py report                   # rebuild tables (logs/) and figures (assets/)
-uv run pytest tests                     # environment unit tests 
-```
-
-On Linux without a display use `uv run main.py play --headless`. Python 3.11-3.13 is selected automatically by uv
-(`.python-version`).
-
 ## Project layout
 
 ```

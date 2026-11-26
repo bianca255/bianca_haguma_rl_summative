@@ -59,6 +59,23 @@ assets/                 figures and environment screenshots used in the report
 | Start state | 5 active users, severity U(0.2, 0.8), engagement U(0.5, 0.9), trust U(0.4, 0.7), 3 slots, 2 referral places |
 | Terminal | crisis (severity ≥ 0.95), all users dropped out; truncation at day 90 |
 
+### Observations (33 floats, all in [0,1], fed to the policy as one vector)
+
+| Feature | Meaning | Source / simulation rule | Update |
+|---|---|---|---|
+| Last-assessed severity (×5) | PHQ-style symptom score | True severity + noise; refreshed by assess, session, referral | On event |
+| Engagement (×5) | Recent app activity | Decays daily; +0.12 on check-in | Daily |
+| Trust (×5) | Confidence in the service | Rises after sessions, falls on needless referral | On event |
+| Days since contact (×5) | min(days,14)/14 | Reset by any action | Daily |
+| Appointment pending (×5) | 0/1 | Booking system | On booking |
+| Active (×5) | 0/1 | 0 once engagement < 0.08 | Daily |
+| Counsellor slots / referral places / day | Resource counters, progress | Refilled weekly / monthly | Daily |
+
+### Why RL
+Every action changes persistent state (engagement, trust, severity) and uses scarce resources, so decisions are
+coupled across users and time. A hand-written rule scores -0.17 on 100 unseen episodes and -9.61 on harder
+dynamics; the best PPO agent scores 5.65 and 0.98 (see the report, Table 5.1).
+
 ## Results (seed 0, 61,440 steps per run; best run per algorithm re-tested on 100 unseen seeds)
 
 | Agent | Return | Users retained /5 | Crisis rate |
